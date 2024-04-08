@@ -1,5 +1,6 @@
 from django.contrib.auth.models import User
 from rest_framework import serializers
+from .models import TimeClock
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
@@ -10,3 +11,13 @@ class UserSerializer(serializers.ModelSerializer):
         def create(self, validated_data):
             user = User.objects.create_user(**validated_data)
             return user
+        
+class TimeClockSerializer(serializers.ModelSerializer):
+    hours_worked = serializers.SerializerMethodField()
+
+    class Meta:
+        model = TimeClock
+        fields = ['id', 'employee', 'date', 'clock_in_time', 'clock_out_time','location', 'role' ]
+
+        def get_hours_worked(self, obj):
+            return obj.hours_worked()
