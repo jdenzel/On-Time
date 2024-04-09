@@ -9,5 +9,16 @@ class CreateUserView(generics.CreateAPIView):
     serializer_class = UserSerializer
     permission_classes = [AllowAny]
 
+class TimeClockView(generics.ListAPIView):
+    serializer_class = TimeClockSerializer
+    permission_classes = [IsAuthenticated]
+
+    def get_queryset(self):
+        user = self.request.user
+        return TimeClock.objects.filter(employee=user)
+    
+
+
+
 
 # Create your views here.
