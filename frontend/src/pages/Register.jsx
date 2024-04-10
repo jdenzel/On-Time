@@ -1,6 +1,7 @@
+import RegisterForm from '../components/RegisterForm'
 function Register() {
     return (
-        <div>Register</div>
+        <RegisterForm route='/api/token/'/>
     )
 }
 
