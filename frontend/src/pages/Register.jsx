@@ -1,7 +1,7 @@
 import RegisterForm from '../components/RegisterForm'
 function Register() {
     return (
-        <RegisterForm route='/api/user/register'/>
+        <RegisterForm route='/api/user/register/'/>
     )
 }
 

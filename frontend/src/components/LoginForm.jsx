@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Formik, Field, Form, ErrorMessage } from 'formik'
 import * as Yup from 'yup'
 import { useNavigate } from 'react-router-dom'
+import { ACCESS_TOKEN, REFRESH_TOKEN } from "../constants";
 import api from '../api'
 
 const loginSchema = Yup.object().shape({
@@ -26,6 +27,7 @@ function LoginForm({ route }) {
               localStorage.setItem(REFRESH_TOKEN, res.data.refresh);
               navigate("/");
             } catch (error) {
+                console.log(values)
               alert(error);
               setSubmitting(false)
             } finally {
