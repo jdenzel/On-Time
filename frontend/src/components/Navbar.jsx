@@ -1,4 +1,5 @@
 import { Link, useNavigate } from 'react-router-dom'
+import { ACCESS_TOKEN } from '../constants'
 
 function NavBar() {
     const navigate = useNavigate()
@@ -8,6 +9,11 @@ function NavBar() {
         localStorage.clear()
     }
 
+    const loggedIn = !!localStorage.getItem(ACCESS_TOKEN)
+
+    if(!loggedIn) {
+        return null;
+    }
     return (
         <div>
             <nav>

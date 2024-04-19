@@ -6,6 +6,7 @@ import Home from "./pages/Home"
 import NotFound from "./pages/NotFound"
 import ProtectedRoute from "./components/ProtectedRoute"
 import NavBar from "./components/Navbar"
+import TimeSheet from "./pages/TimeSheet"
 
 function App() {
 
@@ -21,6 +22,7 @@ function App() {
 
   return (
     <BrowserRouter>
+    <NavBar />
       <Routes>
         <Route
           path="/"
@@ -29,6 +31,14 @@ function App() {
               <Home />
             </ProtectedRoute>
           }
+        />
+        <Route 
+          path='/timesheet' 
+            element={
+              <ProtectedRoute>
+                <TimeSheet />
+              </ProtectedRoute>
+              } 
         />
         <Route path='/login' element={<Login />}/>
         <Route path='/logout' element={<Logout />}/>
