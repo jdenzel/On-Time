@@ -27,7 +27,7 @@ class ClockOutView(generics.UpdateAPIView):
         serializer = TimeClockSerializer(time_clock, data = request.data, partial=True)
 
 
-class TimeClockView(generics.ListAPIView):
+class TimeSheetView(generics.ListAPIView):
     serializer_class = TimeClockSerializer
     permission_classes = [IsAuthenticated]
 
