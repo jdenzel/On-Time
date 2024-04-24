@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { form_data } from "../redux/action";
 import { setClockedIn } from "../redux/slice";
-import axios from "axios";
+import api from "../api";
 import * as Yup from "yup";
 
 const clockinSchema = Yup.object().shape({
@@ -31,7 +31,7 @@ function Clockin({ user, date }) {
       clock_in_time: date.toLocaleTimeString(),
       ...values,
     };
-    axios
+    api
       .post("api/clockin/", form)
       .then((response) => {
         dispatch(form_data({ id: response.data.data.id, ...form }));

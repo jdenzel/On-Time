@@ -20,6 +20,7 @@ function NavBar() {
                 <Link to='/'>Home</Link>
                 <Link to='/timesheet'>Time Sheet</Link>
                 <Link to='/clockin'>Time Clock</Link>
+                <Link to='/clockout'>Clock</Link>
             </nav>
             <button onClick={handleLogout}>Logout</button>
         </div>

@@ -13,6 +13,7 @@ import GuestRoute from "./components/GuestRoute"
 import NavBar from "./components/Navbar"
 import TimeSheet from "./pages/TimeSheet"
 import Clockin from "./components/Clockin"
+import Clockout from "./components/Clockout";
 
 function MainApp() {
   const [user, setUser] = useState({})
@@ -67,6 +68,14 @@ function MainApp() {
           element={
             <ProtectedRoute>
               <Clockin user={user} date={date} />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/clockout"
+          element={
+            <ProtectedRoute>
+              <Clockout />
             </ProtectedRoute>
           }
         />
