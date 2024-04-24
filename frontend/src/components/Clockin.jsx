@@ -12,7 +12,7 @@ const clockinSchema = Yup.object().shape({
   role: Yup.string().required("Required"),
 });
 
-function Clockin({ user, date }) {
+function ClockIn({ user, date }) {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const clockedIn = useSelector((state) => state.clockStatus.clockedIn);
@@ -82,4 +82,4 @@ function Clockin({ user, date }) {
   );
 }
 
-export default Clockin;
+export default ClockIn;

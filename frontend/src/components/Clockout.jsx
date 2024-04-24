@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { setClockedOut } from "../redux/slice";
 import api from "../api";
 
-function Clockout({ date }) {
+function ClockOut({ date }) {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const formData = useSelector((state) => state.formValues.formData);
@@ -48,4 +48,4 @@ function Clockout({ date }) {
   );
 }
 
-export default Clockout;
+export default ClockOut;
