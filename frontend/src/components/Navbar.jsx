@@ -19,6 +19,7 @@ function NavBar() {
             <nav>
                 <Link to='/'>Home</Link>
                 <Link to='/timesheet'>Time Sheet</Link>
+                <Link to='/clockin'>Time Clock</Link>
             </nav>
             <button onClick={handleLogout}>Logout</button>
         </div>

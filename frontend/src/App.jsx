@@ -1,6 +1,8 @@
 import React from "react"
 import { useState, useEffect } from "react"
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom"
+import { Provider } from "react-redux"
+import store from "./redux/store";
 import api from "./api"
 import Login from './pages/Login'
 import Register from "./pages/Register"
@@ -12,17 +14,27 @@ import NavBar from "./components/Navbar"
 import TimeSheet from "./pages/TimeSheet"
 import Clockin from "./components/Clockin"
 
-function App() {
+function MainApp() {
   const [user, setUser] = useState({})
+  const [date, setDate] = useState(new Date())
 
   useEffect(() => {
     api.get('/api/user/')
       .then((res) => res.data)
       .then((data) => {
         setUser(data);
-        console.log(user)
       })
       .catch((err) => alert(err));
+  }, []);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setDate(new Date());
+    }, 1000);
+
+    return () => {
+      clearInterval(timer);
+    };
   }, []);
   
   function RegisterAndLogout() {
@@ -54,7 +66,7 @@ function App() {
           path="/clockin"
           element={
             <ProtectedRoute>
-              <Clockin user={user} />
+              <Clockin user={user} date={date} />
             </ProtectedRoute>
           }
         />
@@ -63,6 +75,14 @@ function App() {
         <Route path="*" element={<GuestRoute><NotFound /></GuestRoute>} />
       </Routes>
     </BrowserRouter>
+  );
+}
+
+function App() {
+  return (
+    <Provider store={store}>
+        <MainApp />
+    </Provider>
   );
 }
 
