@@ -52,6 +52,15 @@ class TimeSheetView(generics.ListAPIView):
         user = self.request.user
         return TimeClock.objects.filter(employee=user)
     
+    def get(self, request):
+        user = request.user
+        queryset = TimeClock.objects.filter(employee=user)
+        total_minutes_worked = sum(time_clock.time_worked() for time_clock in queryset)
+        hours, minutes = divmod(total_minutes_worked, 60)
+        total_time_worked = f"{hours} hrs {minutes} mins"
+        serializer = TimeClockSerializer(queryset, many=True)
+        return Response({"total_time_worked": total_time_worked, "timeClocks": serializer.data})
+    
 
 
 

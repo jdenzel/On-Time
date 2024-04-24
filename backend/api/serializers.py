@@ -17,7 +17,7 @@ class TimeClockSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = TimeClock
-        fields = ['id', 'employee', 'date', 'clock_in_time', 'clock_out_time','location', 'role', 'time_worked' ]
+        fields = ['id', 'employee', 'date', 'clock_in_time', 'clock_out_time','location', 'role', 'time_worked', ]
 
     def get_time_worked(self, obj):
         return obj.time_worked()

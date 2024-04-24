@@ -27,10 +27,9 @@ class TimeClock(models.Model):
             datetime_in = timezone.datetime.combine(self.date, self.clock_in_time)
             datetime_out = timezone.datetime.combine(self.date, self.clock_out_time)
             total_seconds = (datetime_out - datetime_in).total_seconds()
-            hours = total_seconds // 3600
-            minutes = (total_seconds % 3600) // 60
-            return '{} hours {} minutes'.format(int(hours), int(minutes))
-        return '0 hours 0 minutes'
+            total_minutes = total_seconds // 60
+            return int(total_minutes)
+        return 0
             
 
     def __str__(self):

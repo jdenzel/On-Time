@@ -11,10 +11,9 @@ import NotFound from "./pages/NotFound"
 import ProtectedRoute from "./components/ProtectedRoute"
 import GuestRoute from "./components/GuestRoute"
 import NavBar from "./components/Navbar"
-// import TimeSheet from "./pages/TimeSheet"
 import ClockIn from "./components/ClockIn";
 import ClockOut from "./components/ClockOut";
-import TimeSheet from "./components/TimeSheet"
+import TimeLog from "./pages/TimeLog";
 
 function MainApp() {
   const [user, setUser] = useState({})
@@ -27,9 +26,8 @@ function MainApp() {
         setUser(data);
       })
       .catch((err) => console.log(err));
-  }, []);
+  }, [user]);
 
-  // console.log(user)
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -58,7 +56,7 @@ function MainApp() {
           path="/timesheet"
           element={
             <ProtectedRoute>
-              <TimeSheet user={user} />
+              <TimeLog user={user} />
             </ProtectedRoute>
           }
         />
