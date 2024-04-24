@@ -37,6 +37,7 @@ function Clockin({ user, date }) {
         dispatch(form_data({ id: response.data.data.id, ...form }));
         console.log(response);
         console.log({ id: response.data.data.id, ...form });
+        navigate("/clockout/");
         dispatch(setClockedIn());
         setSubmitting(false);
       })

@@ -36,17 +36,16 @@ function Clockout({ date }) {
       .catch((error) => {
         console.log(error);
       });
-
-    return (
-      <div>
-        <h3>Date: {date.toLocaleDateString()}</h3>
-        <h3>Location: {formData.location}</h3>
-        <h3>Role: {formData.role}</h3>
-        <h3>Clocking out at: {date.toLocaleTimeString()}</h3>
-        <button onClick={handleClockOut}>Clock Out</button>
-      </div>
-    );
   };
+  return (
+    <div>
+      <h3>Date: {date.toLocaleDateString()}</h3>
+      <h3>Location: {formData.location}</h3>
+      <h3>Role: {formData.role}</h3>
+      <h3>Clocking out at: {date.toLocaleTimeString()}</h3>
+      <button onClick={handleClockOut}>Clock Out</button>
+    </div>
+  );
 }
 
 export default Clockout;

@@ -13,11 +13,11 @@ class UserSerializer(serializers.ModelSerializer):
         return user
         
 class TimeClockSerializer(serializers.ModelSerializer):
-    hours_worked = serializers.SerializerMethodField()
+    time_worked = serializers.SerializerMethodField()
 
     class Meta:
         model = TimeClock
-        fields = ['id', 'employee', 'date', 'clock_in_time', 'clock_out_time','location', 'role' ]
+        fields = ['id', 'employee', 'date', 'clock_in_time', 'clock_out_time','location', 'role', 'time_worked' ]
 
-        def get_hours_worked(self, obj):
-            return obj.time_worked()
+    def get_time_worked(self, obj):
+        return obj.time_worked()

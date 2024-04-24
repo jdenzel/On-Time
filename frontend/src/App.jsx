@@ -75,7 +75,7 @@ function MainApp() {
           path="/clockout"
           element={
             <ProtectedRoute>
-              <Clockout />
+              <Clockout date={date} />
             </ProtectedRoute>
           }
         />
