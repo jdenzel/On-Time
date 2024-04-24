@@ -14,6 +14,8 @@ import NavBar from "./components/Navbar"
 import ClockIn from "./components/ClockIn";
 import ClockOut from "./components/ClockOut";
 import TimeLog from "./pages/TimeLog";
+import './styles/background.css'
+
 
 function MainApp() {
   const [date, setDate] = useState(new Date())
