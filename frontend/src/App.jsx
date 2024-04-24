@@ -11,9 +11,10 @@ import NotFound from "./pages/NotFound"
 import ProtectedRoute from "./components/ProtectedRoute"
 import GuestRoute from "./components/GuestRoute"
 import NavBar from "./components/Navbar"
-import TimeSheet from "./pages/TimeSheet"
+// import TimeSheet from "./pages/TimeSheet"
 import ClockIn from "./components/ClockIn";
 import ClockOut from "./components/ClockOut";
+import TimeSheet from "./components/TimeSheet"
 
 function MainApp() {
   const [user, setUser] = useState({})
@@ -59,7 +60,7 @@ function MainApp() {
           path="/timesheet"
           element={
             <ProtectedRoute>
-              <TimeSheet />
+              <TimeSheet user={user} />
             </ProtectedRoute>
           }
         />
