@@ -20,4 +20,4 @@ class TimeClockSerializer(serializers.ModelSerializer):
         fields = ['id', 'employee', 'date', 'clock_in_time', 'clock_out_time','location', 'role' ]
 
         def get_hours_worked(self, obj):
-            return obj.hours_worked()
+            return obj.time_worked()

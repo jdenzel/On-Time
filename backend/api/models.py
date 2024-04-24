@@ -22,7 +22,7 @@ class TimeClock(models.Model):
         self.clock_out_time = timezone.localtime(timezone.now())
         self.save()
 
-    def hours_worked(self):
+    def time_worked(self):
         if self.clock_in_time and self.clock_out_time:
             datetime_in = timezone.datetime.combine(self.date, self.clock_in_time)
             datetime_out = timezone.datetime.combine(self.date, self.clock_out_time)
