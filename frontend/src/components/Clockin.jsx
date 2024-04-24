@@ -28,7 +28,12 @@ function ClockIn({ user, date }) {
       employee: user.id,
       first_name: user.first_name,
       last_name: user.last_name,
-      clock_in_time: date.toLocaleTimeString(),
+      clock_in_time: date.toLocaleTimeString("en-US", {
+        hour12: false,
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+      }),
       ...values,
     };
     api

@@ -31,6 +31,7 @@ function TimeSheet({ user }) {
             <tbody>
                 {timeClocks.map(timeClock => (
                     <tr key={timeClock.id}>
+                        
                         <td>{user.first_name} {user.last_name}</td>
                         <td>{timeClock.date}</td>
                         <td>{timeClock.clock_in_time}</td>

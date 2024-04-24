@@ -26,8 +26,10 @@ function MainApp() {
       .then((data) => {
         setUser(data);
       })
-      .catch((err) => alert(err));
+      .catch((err) => console.log(err));
   }, []);
+
+  // console.log(user)
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -39,10 +41,6 @@ function MainApp() {
     };
   }, []);
   
-  function RegisterAndLogout() {
-    localStorage.clear()
-    return <Register />
-  }
 
   return (
     <BrowserRouter>
@@ -81,7 +79,7 @@ function MainApp() {
           }
         />
         <Route path="/login" element={<GuestRoute><Login /></GuestRoute>} />
-        <Route path="/register" element={<GuestRoute><RegisterAndLogout /></GuestRoute>} />
+        <Route path="/register" element={<GuestRoute><Register /></GuestRoute>} />
         <Route path="*" element={<GuestRoute><NotFound /></GuestRoute>} />
       </Routes>
     </BrowserRouter>

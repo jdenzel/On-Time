@@ -12,7 +12,7 @@ function ClockOut({ date }) {
 
   useEffect(() => {
     if (!clockedIn) {
-      navigate("/clockin");
+      navigate("/clockin/");
     }
   }, [clockedIn, navigate]);
 
@@ -31,7 +31,7 @@ function ClockOut({ date }) {
       .then((response) => {
         console.log(response);
         dispatch(setClockedOut());
-        navigate("clockin/");
+        navigate("/clockin/");
       })
       .catch((error) => {
         console.log(error);
@@ -40,8 +40,12 @@ function ClockOut({ date }) {
   return (
     <div>
       <h3>Date: {date.toLocaleDateString()}</h3>
-      <h3>Location: {formData.location}</h3>
-      <h3>Role: {formData.role}</h3>
+      {formData && (
+      <>
+        <h3>Location: {formData.location}</h3>
+        <h3>Role: {formData.role}</h3>
+      </>
+    )}
       <h3>Clocking out at: {date.toLocaleTimeString()}</h3>
       <button onClick={handleClockOut}>Clock Out</button>
     </div>

@@ -28,7 +28,7 @@ function RegisterForm({ route }) {
       onSubmit={async (values, { setSubmitting }) => {
         try {
           const res = await api.post(route, values);
-          console.log(res.data);
+          // console.log(res.data);
         //   localStorage.setItem(ACCESS_TOKEN, res.data.access);
         //   localStorage.setItem(REFRESH_TOKEN, res.data.refresh);
           navigate("/");
@@ -41,7 +41,7 @@ function RegisterForm({ route }) {
       }}
     >
       {({ isSubmitting }) => (
-        <Form>
+        <Form autoComplete="off">
           <h4>Username:</h4>
           <Field type="text" name="username" />
           <ErrorMessage name="username" component="p" />
