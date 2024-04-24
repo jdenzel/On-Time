@@ -11,6 +11,18 @@ class CreateUserView(generics.CreateAPIView):
     serializer_class = UserSerializer
     permission_classes = [AllowAny]
 
+class GetUserView(generics.RetrieveAPIView):
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request):
+        user = request.user
+        user_data = {
+            'id': user.id,
+            'first_name': user.first_name,
+            'last_name': user.last_name
+        }
+        return Response(user_data)
+
 class ClockInView(generics.CreateAPIView):
     permission_classes = [IsAuthenticated]
     def post(self, request):

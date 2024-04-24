@@ -1,5 +1,7 @@
 import React from "react"
+import { useState, useEffect } from "react"
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom"
+import api from "./api"
 import Login from './pages/Login'
 import Register from "./pages/Register"
 import Home from "./pages/Home"
@@ -8,8 +10,20 @@ import ProtectedRoute from "./components/ProtectedRoute"
 import GuestRoute from "./components/GuestRoute"
 import NavBar from "./components/Navbar"
 import TimeSheet from "./pages/TimeSheet"
+import Clockin from "./components/Clockin"
 
 function App() {
+  const [user, setUser] = useState({})
+
+  useEffect(() => {
+    api.get('/api/user/')
+      .then((res) => res.data)
+      .then((data) => {
+        setUser(data);
+        console.log(user)
+      })
+      .catch((err) => alert(err));
+  }, []);
   
   function RegisterAndLogout() {
     localStorage.clear()
@@ -33,6 +47,14 @@ function App() {
           element={
             <ProtectedRoute>
               <TimeSheet />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/clockin"
+          element={
+            <ProtectedRoute>
+              <Clockin user={user} />
             </ProtectedRoute>
           }
         />
