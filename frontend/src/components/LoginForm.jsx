@@ -25,6 +25,12 @@ function LoginForm({ route }) {
                 const res = await api.post(route, values)
               localStorage.setItem(ACCESS_TOKEN, res.data.access);
               localStorage.setItem(REFRESH_TOKEN, res.data.refresh);
+              api.get('/api/user/')
+                  .then((res) => res.data)
+                  .then((data) => {
+                    localStorage.setItem('user', JSON.stringify(data));
+                  })
+                  .catch((err) => console.log(err));
               navigate("/");
             } catch (error) {
                 console.log(values)

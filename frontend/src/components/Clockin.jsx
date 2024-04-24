@@ -12,10 +12,11 @@ const clockinSchema = Yup.object().shape({
   role: Yup.string().required("Required"),
 });
 
-function ClockIn({ user, date }) {
+function ClockIn({ date }) {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const clockedIn = useSelector((state) => state.clockStatus.clockedIn);
+  const user = JSON.parse(localStorage.getItem('user'))
 
   useEffect(() => {
     if (clockedIn) {

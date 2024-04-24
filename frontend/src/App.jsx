@@ -16,18 +16,7 @@ import ClockOut from "./components/ClockOut";
 import TimeLog from "./pages/TimeLog";
 
 function MainApp() {
-  const [user, setUser] = useState({})
   const [date, setDate] = useState(new Date())
-
-  useEffect(() => {
-    api.get('/api/user/')
-      .then((res) => res.data)
-      .then((data) => {
-        setUser(data);
-      })
-      .catch((err) => console.log(err));
-  }, [user]);
-
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -56,7 +45,7 @@ function MainApp() {
           path="/timesheet"
           element={
             <ProtectedRoute>
-              <TimeLog user={user} />
+              <TimeLog />
             </ProtectedRoute>
           }
         />
@@ -64,7 +53,7 @@ function MainApp() {
           path="/clockin"
           element={
             <ProtectedRoute>
-              <ClockIn user={user} date={date} />
+              <ClockIn date={date} />
             </ProtectedRoute>
           }
         />

@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import api from "../api";
 
-function TimeSheet({ user, timeClocks }) {
+function TimeSheet({ timeClocks }) {
+    const user = JSON.parse(localStorage.getItem('user'))
     // const [timeSheet, setTimeSheet] = useState([]);
     
     // useEffect(() => {

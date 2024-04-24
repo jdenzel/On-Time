@@ -2,7 +2,7 @@ import TimeSheet from "../components/TimeSheet"
 import { useState, useEffect } from "react";
 import api from "../api";
 
-function TimeLog({ user }) {
+function TimeLog() {
     const [timeSheetData, setTimeSheetData] = useState([]);
 
     useEffect(() => {
@@ -19,7 +19,7 @@ function TimeLog({ user }) {
         
         <div>
             {timeSheetData && <h3>Time worked: {timeSheetData.total_time_worked} </h3>}
-            {timeSheetData && timeSheetData.timeClocks && <TimeSheet user={user} timeClocks={timeSheetData.timeClocks} />}
+            {timeSheetData && timeSheetData.timeClocks && <TimeSheet timeClocks={timeSheetData.timeClocks} />}
         </div>
     )
 }
