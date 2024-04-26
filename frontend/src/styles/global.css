@@ -1,21 +1,26 @@
 body {
-    position: relative;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    position: relative; 
     overflow: hidden;
     background-image: url("/background.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-    min-height: 100vh; /* Change this line */
-    margin: 0; /* Add this line to remove default margin */
+    min-height: 100vh;
+    margin: 0;
 }
+  
 
 body::before {
-    content: ""; /* Add this line */
+    content: "";
     position: absolute;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
     background: rgba(22, 13, 13, 0.8); 
-    backdrop-filter: blur(8px);
+    backdrop-filter: blur(5px);
     z-index: -1;
 }
+

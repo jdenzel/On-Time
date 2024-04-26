@@ -4,10 +4,11 @@ import * as Yup from 'yup'
 import { useNavigate } from 'react-router-dom'
 import { ACCESS_TOKEN, REFRESH_TOKEN } from "../constants";
 import api from '../api'
+import '../styles/login.css'
 
 const loginSchema = Yup.object().shape({
-    username: Yup.string().required('Username Required'),
-    password: Yup.string().required('Password Required'),
+    username: Yup.string().required('Username is required'),
+    password: Yup.string().required('Password is required'),
 })
 
 function LoginForm({ route }) {
@@ -41,16 +42,17 @@ function LoginForm({ route }) {
             }
         }}>
             {({ isSubmitting }) => (
-                <Form>
-                    <h4>Username:</h4>
-                    <Field type="text" name="username"/>
-                    <ErrorMessage name="username" component="p"/> 
+                <Form className='login-form-container'>
+                    <div className="login-form-field">
+                        <Field type="text" name="username" placeholder="username"/>
+                        <ErrorMessage className='login-form-err' name="username" component="p"/> 
+                    </div>
+                    <div className="login-form-field">
+                        <Field type="password" name="password" placeholder="password"/>
+                        <ErrorMessage className='login-form-err' name="password" component="p"/>
+                    </div>
                     
-                    <h4>Password:</h4>
-                    <Field type="password" name="password"/>
-                    <ErrorMessage name="password" component="p"/>
-
-                    <button type='submit' disabled={isSubmitting}>Log In</button>
+                    <button className='login-form-btn' type='submit' disabled={isSubmitting}>Login</button>
                 </Form>
             )}
         </Formik>

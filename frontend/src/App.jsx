@@ -14,7 +14,7 @@ import NavBar from "./components/Navbar"
 import ClockIn from "./components/ClockIn";
 import ClockOut from "./components/ClockOut";
 import TimeLog from "./pages/TimeLog";
-import './styles/background.css'
+import './styles/global.css'
 
 
 function MainApp() {

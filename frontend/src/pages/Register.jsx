@@ -1,4 +1,5 @@
 import RegisterForm from '../components/RegisterForm'
+import '../styles/register.css'
 import { Link } from 'react-router-dom'
 
 function Register() {
