@@ -19,18 +19,18 @@ function RegisterForm({ route }) {
   return (
     <Formik
       initialValues={{
-        username: '',
-        first_name: '',
-        last_name: '',
-        password: '',
+        username: "",
+        first_name: "",
+        last_name: "",
+        password: "",
       }}
       validationSchema={registerSchema}
       onSubmit={async (values, { setSubmitting }) => {
         try {
           const res = await api.post(route, values);
           // console.log(res.data);
-        //   localStorage.setItem(ACCESS_TOKEN, res.data.access);
-        //   localStorage.setItem(REFRESH_TOKEN, res.data.refresh);
+          //   localStorage.setItem(ACCESS_TOKEN, res.data.access);
+          //   localStorage.setItem(REFRESH_TOKEN, res.data.refresh);
           navigate("/");
         } catch (error) {
           alert(error);
@@ -41,24 +41,30 @@ function RegisterForm({ route }) {
       }}
     >
       {({ isSubmitting }) => (
-        <Form autoComplete="off">
-          <h4>Username:</h4>
-          <Field type="text" name="username" />
-          <ErrorMessage name="username" component="p" />
+        <Form className="register-form-container" autoComplete="off">
+          <div className="register-fs-ls">
+            <div className="register-form-field">
+              <Field className='input-field' type="text" name="first_name" placeholder='first name'/>
+              <ErrorMessage className='register-form-err' name="first_name" component="p" />
+            </div>
 
-          <h4>First Name:</h4>
-          <Field type="text" name="first_name" />
-          <ErrorMessage name="first_name" component="p" />
+            <div className="register-form-field">
+              <Field type="text" name="last_name" placeholder='last name'/>
+              <ErrorMessage className='register-form-err' name="last_name" component="p" />
+            </div>
+          </div>
 
-          <h4>Last Name:</h4>
-          <Field type="text" name="last_name" />
-          <ErrorMessage name="last_name" component="p" />
+          <div className="login-form-field">
+            <Field type="text" name="username" placeholder='username'/>
+            <ErrorMessage className='register-form-err' name="username" component="p" />
+          </div>
 
-          <h4>Password:</h4>
-          <Field type="password" name="password" />
-          <ErrorMessage name="password" component="p" />
+          <div className="register-form-field">
+            <Field type="password" name="password" placeholder='password'/>
+            <ErrorMessage className='register-form-err' name="password" component="p" />
+          </div>
 
-          <button type="submit" disabled={isSubmitting}>
+          <button className='register-form-btn' type="submit" disabled={isSubmitting}>
             Sign Up
           </button>
         </Form>
