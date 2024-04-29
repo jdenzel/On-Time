@@ -2,7 +2,6 @@ import { useState } from "react";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { useNavigate } from "react-router-dom";
-import { ACCESS_TOKEN, REFRESH_TOKEN } from "../constants";
 import api from "../api";
 
 const registerSchema = Yup.object().shape({
@@ -28,9 +27,6 @@ function RegisterForm({ route }) {
       onSubmit={async (values, { setSubmitting }) => {
         try {
           const res = await api.post(route, values);
-          // console.log(res.data);
-          //   localStorage.setItem(ACCESS_TOKEN, res.data.access);
-          //   localStorage.setItem(REFRESH_TOKEN, res.data.refresh);
           navigate("/");
         } catch (error) {
           alert(error);

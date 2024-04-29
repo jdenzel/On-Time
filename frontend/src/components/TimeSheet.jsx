@@ -1,30 +1,16 @@
-import { useEffect, useState } from "react";
-import api from "../api";
+import Table from 'react-bootstrap/Table'
+import '../styles/timesheet.css'
 
 function TimeSheet({ timeClocks }) {
     const user = JSON.parse(localStorage.getItem('user'))
-    // const [timeSheet, setTimeSheet] = useState([]);
-    
-    // useEffect(() => {
-    //     api.get('/api/timesheet/')
-    //         .then(r => {
-    //             setTimeSheet(r.data);
-    //         })
-    //         .catch(error => {
-    //             console.log('An error occurred', error)
-    //         })
-    // }, [])
-
-    // console.log(timeClocks)
-
 
     return (
-        <div>
-            <table>
-            <thead>
+        <div className='ts-log'>
+            <Table striped bordered hover responsive='sm md lg xl' >
+            <thead className='ts-log-head'>
                 <tr>
                     <th>Name</th>
-                    <th>Date</th>
+                    <th style={{maxWidth: '100px'}}>Date</th>
                     <th>Clock in Time</th>
                     <th>Clock out Time</th>
                     <th>Location</th>
@@ -45,7 +31,7 @@ function TimeSheet({ timeClocks }) {
                     </tr>
                 ))}
             </tbody>
-        </table>
+        </Table>
         </div>
     )
 }

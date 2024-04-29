@@ -5,10 +5,6 @@ import logo from '../assets/logo.png'
 
 function Register() {
     return (
-    //   <div>
-    //     <RegisterForm route="/api/user/register/" />
-    //     <Link to="/login">Have an account?</Link>
-    //   </div>
 
       <div className="register-page">
       <div className='register-body'>
