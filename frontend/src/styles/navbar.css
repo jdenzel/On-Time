@@ -2,11 +2,11 @@
 
 .topnav {
     overflow: hidden;
-    background-color: transparent;
+    background-color: #160D0D;
   }
 
 .nav-link-full {
-    margin: 20px 50px;
+    padding: 10px 50px;
   } 
 
   .topnav .nav-link {

@@ -6,17 +6,18 @@ import { form_data } from "../redux/action";
 import { setClockedIn } from "../redux/slice";
 import api from "../api";
 import * as Yup from "yup";
+import "../styles/timeclock.css";
 
 const clockinSchema = Yup.object().shape({
   location: Yup.string().required("Required"),
   role: Yup.string().required("Required"),
 });
 
-function ClockIn({ date }) {
+function ClockInForm({ date }) {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const clockedIn = useSelector((state) => state.clockStatus.clockedIn);
-  const user = JSON.parse(localStorage.getItem('user'))
+  const user = JSON.parse(localStorage.getItem("user"));
 
   useEffect(() => {
     if (clockedIn) {
@@ -59,27 +60,37 @@ function ClockIn({ date }) {
       onSubmit={handleSubmit}
     >
       {({ isSubmitting }) => (
-        <Form>
-          <h3>Date: {date.toLocaleDateString()}</h3>
-          <h3>Time: {date.toLocaleTimeString()}</h3>
+        <Form className="cin-form-lr">
+          <div className="form-location">
+            <i className="material-icons">location_on </i>
+            <Field
+              className="location-select"
+              type="text"
+              name="location"
+              placeholder="location"
+            />
+          </div>
+          <div className="err">
+            <ErrorMessage name="location" component="div" />
+          </div>
 
-          <h3>Location</h3>
-          <Field type="text" name="location" />
-          <ErrorMessage name="location" component="div" />
+          <div className="form-role">
+            <i className="material-icons">person </i>
+            <Field className="role-select" as="select" name="role">
+              <option value="">Select a role</option>
+              <option value="scoreboard">Scoreboard</option>
+              <option value="paperscorer">Paper Scorer</option>
+              <option value="camera">Camera Operator</option>
+              <option value="onlinescorer">Online Scorer</option>
+              <option value="gamechange">Game Changer</option>
+              <option value="subtime">Sub timer</option>
+            </Field>
+          </div>
+          <div className="err">
+            <ErrorMessage name="role" component="div" />
+          </div>
 
-          <h3>Role</h3>
-          <Field as="select" name="role">
-            <option value="">Select a role</option>
-            <option value="scoreboard">Scoreboard</option>
-            <option value="paperscorer">Paper Scorer</option>
-            <option value="camera">Camera Operator</option>
-            <option value="onlinescorer">Online Scorer</option>
-            <option value="gamechange">Game Changer</option>
-            <option value="subtime">Sub timer</option>
-          </Field>
-          <ErrorMessage name="role" component="div" />
-
-          <button type="submit" disabled={isSubmitting}>
+          <button className="form-btn" type="submit" disabled={isSubmitting}>
             Clock In
           </button>
         </Form>
@@ -88,4 +99,4 @@ function ClockIn({ date }) {
   );
 }
 
-export default ClockIn;
+export default ClockInForm;

@@ -1,0 +1,254 @@
+.clock-page {
+    height: 100vh;
+    width: 100vw;
+    font-family: "Poppins", sans-serif;
+}
+
+.clock-container {
+    height: 100%;
+    padding-bottom: 10%;
+    background-color: #160D0D;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.clock-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    height: 80%;
+    border-radius: 30px;
+    background-color: #25a5eb2e;
+    box-shadow: 1px 9px 19px 4px rgba(0,0,0,0.65);
+}
+
+.cin-form-info {
+    height: 90%;
+    width: 95%;
+    border-radius: 30px;
+    background-color: #160D0D;
+    border: 1px solid #0fa8df;
+    color: #f2f2f2;
+}
+
+.cin-form-dt .material-icons {
+    font-size: 50px;
+}
+
+
+.date {
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+    
+}
+.date-info {
+    padding-left: 10px;
+}
+
+.time {
+    margin-top: 10px;
+    align-items: center;
+    display: flex;
+}
+.time-info {
+    padding-left: 10px;
+}
+
+.cin-form-dt {
+    margin-top: 15px;
+    margin-left: 20px;
+    font-size: 40px;
+}
+
+.form-location {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    height: 50px;
+    width: 90%
+}
+
+.location-select {
+    margin-left: 10px;
+    background-color: transparent;
+    border: 1px solid #0fa8df;
+    height: 100%;
+    width: 90%;
+    border-radius: 30px;
+    color:#f2f2f2;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: 20px;
+}
+
+.form-role {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    height: 50px;
+    width: 90%
+}
+
+.role-select {
+    margin-left: 10px;
+}
+
+.cin-form-lr {
+    margin-top: 15px;
+}
+.err {
+    margin-left: 20px;
+    color: rgb(247, 25, 13);
+    font-size: 15px;
+    font-style: italic;
+}
+
+.cin-form-lr .material-icons{
+    font-size: 50px;
+    margin-left: 20px;
+}
+
+.role-select {
+    margin-left: 10px;
+    background-color: transparent;
+    border: 1px solid #0fa8df;
+    height: 100%;
+    width: 90%;
+    border-radius: 30px;
+    color:#f2f2f2;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: 20px;
+    -moz-appearance:none; /* Firefox */
+    -webkit-appearance:none; /* Safari and Chrome */
+    appearance:none;
+}
+
+.form-btn {
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    width: 30%;
+    background-color: transparent;
+    border: 2px solid white;
+    border-radius: 50px;
+    height: 50px;
+    color: white;
+    font-size: 20px;
+    margin-top: 20px;
+    margin-left:auto;
+    margin-right:auto;
+    transition: all 0.5s;
+}
+
+.form-btn:hover {
+    background-color: #087197;
+    border: 2px solid #087197;
+}
+
+.cout-info {
+    color:#f2f2f2;
+    font-size: 40px;
+    height: 90%;
+    width: 70%;
+    padding: 20px 30px;
+    background-color: #160D0D;
+    border: 1px solid #0fa8df;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+.cout-form-location {
+    display: flex;
+}
+.cout-form-role {
+    display: flex;
+}
+
+.cout-info .material-icons {
+    font-size: 50px;
+}
+
+.cout-info .form-location-1 {
+    padding-left: 10px;
+}
+
+.cout-info .form-role-1 {
+    padding-left: 10px;
+}
+
+.cout-form-btn {
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    width: 30%;
+    background-color: transparent;
+    border: 2px solid white;
+    border-radius: 50px;
+    height: 50px;
+    color: white;
+    font-size: 20px;
+    margin-top: 20px;
+    margin-left:auto;
+    margin-right:auto;
+    transition: all 0.5s;
+}
+
+.cout-form-btn:hover {
+    background-color: #087197;
+    border: 2px solid #087197;
+}
+
+
+@media (min-width: 350px) and (max-width: 500px) {
+    .clock-box {
+        width: 95%;
+    }
+    .cin-box{
+        width: 95%;
+        max-height: 75%;
+    }
+    .cout-info {
+        width: 95%;
+        font-size: 30px;
+        padding: 10px 20px;
+    }
+    .cout-form-btn {
+        width: 50%;
+    }
+}
+
+@media (min-width: 500px) and (max-width: 900px) {
+    .clock-box{
+        width: 95%;
+        height: 95%;
+    }
+    .cout-info {
+        height: 80%;
+        width: 80%;
+        font-size: 40px;
+    }
+    .cout-form-btn {
+        width: 40%;
+    }
+} 
+
+@media (min-width: 1000px) {
+    .cin-form-info {
+        height: 90%;
+        max-width: 1200px;
+        border-radius: 30px;
+        background-color: #160D0D;
+        border: 1px solid #0fa8df;
+        color: #f2f2f2;
+    }
+    .cout-form-btn {
+        width: 35%;
+    }
+} 

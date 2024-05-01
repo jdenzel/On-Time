@@ -1,9 +1,6 @@
 import { useNavigate, NavLink } from "react-router-dom";
 import { useState } from "react";
 import { ACCESS_TOKEN } from "../constants";
-import Container from "react-bootstrap/Container";
-import Nav from "react-bootstrap/Nav";
-import Navbar from "react-bootstrap/Navbar";
 import logo from "../assets/logo.png";
 import "../styles/navbar.css";
 
@@ -44,6 +41,9 @@ function NavBar() {
           >
             Time Sheet
           </NavLink>
+          <button className="nav-btn" onClick={handleLogout}>
+          Logout
+        </button>
         </div>
         <NavLink
           className="nav-link icon"
@@ -54,9 +54,7 @@ function NavBar() {
         >
           <i className="fa fa-bars"></i>
         </NavLink>
-        <button className="nav-btn" onClick={handleLogout}>
-          Logout
-        </button>
+        
       </div>
     </div>
   );

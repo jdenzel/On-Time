@@ -11,8 +11,8 @@ import NotFound from "./pages/NotFound"
 import ProtectedRoute from "./components/ProtectedRoute"
 import GuestRoute from "./components/GuestRoute"
 import NavBar from "./components/Navbar"
-import ClockIn from "./components/ClockIn";
-import ClockOut from "./components/ClockOut";
+import ClockIn from "./pages/ClockIn";
+import ClockOut from "./pages/ClockOut";
 import TimeLog from "./pages/TimeLog";
 import './styles/global.css'
 

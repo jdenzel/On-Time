@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { setClockedOut } from "../redux/slice";
 import api from "../api";
 
-function ClockOut({ date }) {
+function ClockOutForm({ date }) {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const formData = useSelector((state) => state.formValues.formData);
@@ -38,18 +38,30 @@ function ClockOut({ date }) {
       });
   };
   return (
-    <div>
-      <h3>Date: {date.toLocaleDateString()}</h3>
-      {formData && (
-      <>
-        <h3>Location: {formData.location}</h3>
-        <h3>Role: {formData.role}</h3>
-      </>
-    )}
-      <h3>Clocking out at: {date.toLocaleTimeString()}</h3>
-      <button onClick={handleClockOut}>Clock Out</button>
+    <div className="cout-info">
+      <div className="date">
+        <i class="material-icons">calendar_today </i>
+        <div className="date-info"> {date.toLocaleDateString()}</div>
+      </div>
+      <div className="time">
+        <i className="material-icons">schedule </i>
+        <div className="time-info"> {date.toLocaleTimeString()}</div>
+      </div>
+      <div className="cout-form-location">
+        <div className="lo-ic">
+        <i className="material-icons">location_on </i>
+        </div>
+        <div className="form-location-1">{formData.location}</div>
+      </div>
+      <div className="cout-form-role">
+        <div className="ro-ic">
+        <i className="material-icons">person </i>
+        </div>
+        <div className="form-role-1">{formData.role}</div>
+      </div>
+      <button className="cout-form-btn " onClick={handleClockOut}>Clock Out</button>
     </div>
   );
 }
 
-export default ClockOut;
+export default ClockOutForm;
