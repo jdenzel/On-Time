@@ -45,4 +45,4 @@ To get started, click on this link: [App](https://on-time.us-cdp2.choreoapps.dev
 
 ## Wireframe
 
-[Wireframe] (https://www.figma.com/file/lYwzSn4JXiIFiyIsVbTzl9/On-Time-Wireframe?type=design&mode=design&t=YQeVfW109JUvpNFz-1)
+[Wireframe](https://www.figma.com/file/lYwzSn4JXiIFiyIsVbTzl9/On-Time-Wireframe?type=design&mode=design&t=YQeVfW109JUvpNFz-1)
